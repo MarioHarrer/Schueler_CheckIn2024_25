@@ -9,6 +9,7 @@ namespace Schueler_CheckIn2024_25
     {
         public static void Main(string[] args)
         {
+           
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
