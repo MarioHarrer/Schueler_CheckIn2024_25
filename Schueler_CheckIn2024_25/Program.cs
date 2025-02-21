@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Schueler_CheckIn2024_25.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Schueler_CheckIn2024_25
 {
@@ -18,6 +19,8 @@ namespace Schueler_CheckIn2024_25
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddDbContext<Schueler_CheckIn2024_25Context>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Schueler_CheckIn2024_25Context") ?? throw new InvalidOperationException("Connection string 'Schueler_CheckIn2024_25Context' not found.")));
             builder.Services.AddRazorPages();
 
             var app = builder.Build();

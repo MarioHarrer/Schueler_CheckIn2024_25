@@ -1,0 +1,45 @@
+﻿@page
+@model Schueler_CheckIn2024_25.Pages.SchuelerP.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Schueler</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Schueler.id" />
+            <div class="form-group">
+                <label asp-for="Schueler.email" class="control-label"></label>
+                <input asp-for="Schueler.email" class="form-control" />
+                <span asp-validation-for="Schueler.email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Schueler.schluessel" class="control-label"></label>
+                <input asp-for="Schueler.schluessel" class="form-control" />
+                <span asp-validation-for="Schueler.schluessel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Schueler.passwort" class="control-label"></label>
+                <input asp-for="Schueler.passwort" class="form-control" />
+                <span asp-validation-for="Schueler.passwort" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
